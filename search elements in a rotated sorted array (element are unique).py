@@ -11,7 +11,7 @@ while(lo<=hi):
     if arr[mid] == target:
         print(mid)
         break
-    elif arr[lo]<arr[mid]:
+    elif arr[lo]<=arr[mid]:
         if arr[lo]<=target and target < arr[mid]:
             hi=mid-1
         else:
