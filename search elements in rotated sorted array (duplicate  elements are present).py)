@@ -1,0 +1,27 @@
+arr = [7,8,2,2,2,2,3,4,5,6]
+#arr= [0,1,2,3,4,5,6,7,8,9]
+target = 3
+lo = 0
+hi = len(arr) - 1
+while lo <= hi:
+    mid = (lo + hi) // 2
+    if arr[mid] == target:
+        print(mid)
+        break
+    # Check if the left part is sorted
+    if arr[lo] < arr[mid]:
+        if arr[lo] <= target < arr[mid]:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    # Check if the right part is sorted
+    elif arr[lo] > arr[mid]:
+        if arr[mid] < target <= arr[hi]:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    # Handle the case where arr[lo], arr[mid], and arr[hi] are all equal
+    else:
+        lo += 1  # Move lo pointer one step further
+else:
+    print("Element not found")
